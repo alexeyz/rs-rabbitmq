@@ -1,0 +1,66 @@
+SITE
+  remote: http://community.opscode.com/api/v1
+  specs:
+    apt (1.9.0)
+    build-essential (1.3.4)
+    collectd (1.0.0)
+    cron (1.2.2)
+    erlang (1.2.0)
+      build-essential (>= 0.0.0)
+      yum (>= 0.5.0)
+    runit (1.1.0)
+      build-essential (>= 0.0.0)
+    yum (2.1.0)
+
+GIT
+  remote: https://github.com/flaccid/cookbooks
+  path: cookbooks/rightscale
+  ref: master
+  sha: 936fb101b1ab08230c9531cbc9d9fe66e0c9fc68
+  specs:
+    rightscale (0.0.1)
+      collectd (>= 0.0.0)
+
+GIT
+  remote: https://github.com/flaccid/cookbooks
+  path: cookbooks/system
+  ref: master
+  sha: 936fb101b1ab08230c9531cbc9d9fe66e0c9fc68
+  specs:
+    system (0.0.1)
+      cron (>= 0.0.0)
+
+GIT
+  remote: https://github.com/fnichol/chef-git
+  ref: master
+  sha: 6c19cbefcdad5ec0f62a64dae1f656d660698ea3
+  specs:
+    git (0.9.0)
+      runit (>= 0.0.0)
+
+GIT
+  remote: https://github.com/opscode-cookbooks/rabbitmq
+  ref: master
+  sha: 794a182f9ec35298e7999a12f9455b484d1dec34
+  specs:
+    rabbitmq (1.8.1)
+      apt (>= 1.4.4)
+      erlang (>= 0.9)
+      yum (>= 0.5.0)
+
+GIT
+  remote: https://github.com/rightscale/rightscale_cookbooks
+  path: cookbooks/block_device
+  ref: release13.03
+  sha: 90f6db611b23b443f64b47904ac43107fb980fe9
+  specs:
+    block_device (13.3.0)
+      rightscale (>= 0.0.0)
+
+DEPENDENCIES
+  block_device (>= 0)
+  git (>= 0)
+  rabbitmq (>= 0)
+  rightscale (>= 0)
+  system (>= 0)
+

@@ -1,0 +1,20 @@
+{
+  "system": {
+    "short_hostname":"linux",
+    "domain_name":"localdomain"
+  },
+  "rabbitmq": {
+    "erlang_cookie":"1234567890QWERTYUIOP",
+    "nodename":"rmq01",
+    "enabled_plugins": [ "rabbitmq_management_agent" ]
+  },
+  "authorization": {
+    "sudo": {
+      "groups": [ "vagrant" ],
+      "users": [ "vagrant" ],
+      "passwordless":"true",
+      "include_sudoers_d":"true"
+    }
+  },  
+  "run_list": [ "recipe[rabbitmq]" ]
+}

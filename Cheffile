@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+#^syntax detection
+
+site 'http://community.opscode.com/api/v1'
+
+cookbook 'system',
+   :git => 'https://github.com/flaccid/cookbooks',
+   :path => 'cookbooks/system',
+   :ref => 'master'
+
+cookbook 'git',
+    :git  => 'https://github.com/fnichol/chef-git'
+
+cookbook 'rightscale',
+   :git => 'https://github.com/flaccid/cookbooks',
+   :path => 'cookbooks/rightscale',
+   :ref => 'master'
+
+cookbook 'block_device',
+   :git => 'https://github.com/rightscale/rightscale_cookbooks',
+   :path => 'cookbooks/block_device',
+   :ref => 'release13.03'
+
+cookbook 'rabbitmq',
+   :git => 'https://github.com/opscode-cookbooks/rabbitmq',
+   :ref => 'master'
+
