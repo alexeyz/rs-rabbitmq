@@ -22,6 +22,6 @@ cookbook 'block_device',
    :ref => 'release13.03'
 
 cookbook 'rabbitmq',
-   :git => 'https://github.com/opscode-cookbooks/rabbitmq',
+   :git => 'https://github.com/opscode-cookbooks/rabbitmq.git',
    :ref => 'master'
 

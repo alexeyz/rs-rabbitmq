@@ -39,7 +39,7 @@ GIT
       runit (>= 0.0.0)
 
 GIT
-  remote: https://github.com/opscode-cookbooks/rabbitmq
+  remote: https://github.com/opscode-cookbooks/rabbitmq.git
   ref: master
   sha: 794a182f9ec35298e7999a12f9455b484d1dec34
   specs:
