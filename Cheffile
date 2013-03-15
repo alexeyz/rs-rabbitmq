@@ -25,3 +25,7 @@ cookbook 'rabbitmq',
    :git => 'https://github.com/opscode-cookbooks/rabbitmq.git',
    :ref => 'master'
 
+cookbook 'rs-rabbitmq',
+   :git => 'https://github.com/alexeyz/rs-wrappers.git',
+   :path => 'cookbooks/rs-rabbitmq',
+   :ref => 'master'

@@ -13,6 +13,14 @@ SITE
     yum (2.1.0)
 
 GIT
+  remote: https://github.com/alexeyz/rs-wrappers.git
+  path: cookbooks/rs-rabbitmq
+  ref: master
+  sha: 3625b8eea35e8b14f1d9aff299dd4cb650ab80bd
+  specs:
+    rs-rabbitmq (0.1.0)
+
+GIT
   remote: https://github.com/flaccid/cookbooks
   path: cookbooks/rightscale
   ref: master
@@ -62,5 +70,6 @@ DEPENDENCIES
   git (>= 0)
   rabbitmq (>= 0)
   rightscale (>= 0)
+  rs-rabbitmq (>= 0)
   system (>= 0)
 
