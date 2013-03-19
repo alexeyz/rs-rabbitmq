@@ -8,6 +8,14 @@ cookbook 'system',
    :path => 'cookbooks/system',
    :ref => 'master'
 
+cookbook 'apt',
+   :git => 'https://github.com/opscode-cookbooks/apt.git',
+   :ref => 'master'
+
+cookbook 'yum',
+   :git => 'https://github.com/opscode-cookbooks/yum.git',
+   :ref => 'master'
+
 cookbook 'git',
     :git  => 'https://github.com/fnichol/chef-git'
 
