@@ -1,14 +1,30 @@
-default['rightscale']['monitoring']['collectd_plugins'] = [ "cpu", "df", "disk", "load", "memory", "processes", "swap", "users" ]
+#
+# Cookbook Name:: rightscale
+#
+# Copyright RightScale, Inc. All rights reserved.  All access and use subject to the
+# RightScale Terms of Service available at http://www.rightscale.com/terms.php and,
+# if applicable, other agreements such as a RightScale Master Subscription Agreement.
 
-# these are injected into the right_link run; defaults set for non rightscale nodes
-default['rightscale']['instance_uuid'] = false
-default['rightscale']['servers']['sketchy']['hostname'] = nil
 
-# hack/feature to override node attributes via a json provided in user-data
-if File.exist?('/var/spool/cloud/user-data.rb')
-  require 'json'
-  require '/var/spool/cloud/user-data.rb'
-  JSON.parse(ENV['RS_CHEF_JSON']).each do |key, value|
-   override[key] = value
-  end unless ENV['RS_CHEF_JSON'].nil?
-end
+# RightScale Environment Attributes.
+# These are needed by all RightScale Cookbooks.
+# rightscale should be included in all server templates so these attributes are declared here.
+
+
+# Optional attributes
+#
+default[:rightscale][:timezone] = "UTC"
+default[:rightscale][:process_list] = ""
+default[:rightscale][:process_match_list] = ""
+default[:rightscale][:private_ssh_key] = ""
+
+default[:rightscale][:db_backup_file] = "/var/run/db-backup"
+
+default[:rightscale][:short_hostname] = nil
+default[:rightscale][:domain_name] = ""
+default[:rightscale][:search_suffix] = ""
+
+default[:rightscale][:security_update] = "disable"
+
+# Cloud specific attributes
+#

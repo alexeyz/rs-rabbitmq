@@ -1,7 +1,8 @@
 Vagrant::Config.run do |config|
 
   # name of vagrant box
-  config.vm.box = "centos6_server"
+  config.vm.box = "centos6.4_server"
+#From http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20130309.box
 
   # update apt on debian systems
 #  config.vm.provision :shell, :inline => 'which apt-get && apt-get -y update'		# comment out to speed up reloads

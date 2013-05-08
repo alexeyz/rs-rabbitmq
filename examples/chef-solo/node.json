@@ -6,6 +6,7 @@
   "rabbitmq": {
     "erlang_cookie":"1234567890QWERTYUIOP",
     "nodename":"rmq01",
+    "version": "3.1",
     "enabled_plugins": [ "rabbitmq_management_agent" ]
   },
   "authorization": {

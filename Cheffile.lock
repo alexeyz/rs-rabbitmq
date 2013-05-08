@@ -21,15 +21,6 @@ GIT
 
 GIT
   remote: https://github.com/flaccid/cookbooks
-  path: cookbooks/rightscale
-  ref: master
-  sha: 936fb101b1ab08230c9531cbc9d9fe66e0c9fc68
-  specs:
-    rightscale (0.0.1)
-      collectd (>= 0.0.0)
-
-GIT
-  remote: https://github.com/flaccid/cookbooks
   path: cookbooks/system
   ref: master
   sha: 936fb101b1ab08230c9531cbc9d9fe66e0c9fc68
@@ -77,6 +68,14 @@ GIT
   specs:
     block_device (13.3.0)
       rightscale (>= 0.0.0)
+
+GIT
+  remote: https://github.com/rightscale/rightscale_cookbooks.git
+  path: cookbooks/rightscale
+  ref: release13.03
+  sha: 90f6db611b23b443f64b47904ac43107fb980fe9
+  specs:
+    rightscale (13.3.0)
 
 DEPENDENCIES
   apt (>= 0)

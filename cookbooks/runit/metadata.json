@@ -17,7 +17,8 @@
     "enterpriseenterprise": ">= 0.0.0"
   },
   "dependencies": {
-    "build-essential": ">= 0.0.0"
+    "build-essential": ">= 0.0.0",
+    "yum": ">= 0.0.0"
   },
   "recommendations": {
   },
@@ -36,5 +37,5 @@
   "recipes": {
     "runit": "Installs and configures runit"
   },
-  "version": "1.1.0"
+  "version": "1.1.4"
 }

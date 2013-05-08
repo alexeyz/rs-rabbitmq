@@ -1,20 +1,27 @@
+#
 # Cookbook Name:: rightscale
-# Recipe:: default
 #
-# Copyright 2012, Chris Fordham
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# Copyright RightScale, Inc. All rights reserved.  All access and use subject to the
+# RightScale Terms of Service available at http://www.rightscale.com/terms.php and,
+# if applicable, other agreements such as a RightScale Master Subscription Agreement.
 
-include_recipe "rightscale::server_tags"
-include_recipe "rightscale::monitoring"
-include_recipe "rightscale::install_tools"
+rightscale_marker :begin
+# Recipe sets node[:rightscale] variables via attribute and metadata.
+
+# Make sure these inputs are set.
+raise "rightscale/instance_uuid must be set" unless node[:rightscale][:instance_uuid]
+raise "rightscale/servers/sketchy/hostname must be set" unless node[:rightscale][:servers][:sketchy][:hostname]
+
+log "rightscale/instance_uuid is  #{node[:rightscale][:instance_uuid]}"
+log "rightscale/servers/sketchy/hostname is #{node[:rightscale][:servers][:sketchy][:hostname]}"
+
+# See cookbooks/rightscale/recipes/setup_server_tags.rb for the "rightscale::setup_server_tags" recipe.
+include_recipe "rightscale::setup_server_tags"
+
+# See cookbooks/rightscale/recipes/setup_timezone.rb for the "rightscale::setup_timezone" recipe.
+include_recipe "rightscale::setup_timezone"
+
+# See cookbooks/rightscale/recipes/setup_monitoring.rb for the "rightscale::setup_monitoring" recipe.
+include_recipe "rightscale::setup_monitoring"
+
+rightscale_marker :end

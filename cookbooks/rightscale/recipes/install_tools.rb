@@ -1,20 +1,54 @@
+#
 # Cookbook Name:: rightscale
-# Recipe:: install_tools
 #
-# Copyright 2012, Chris Fordham
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# Copyright RightScale, Inc. All rights reserved.  All access and use subject to the
+# RightScale Terms of Service available at http://www.rightscale.com/terms.php and,
+# if applicable, other agreements such as a RightScale Master Subscription Agreement.
 
-# This recipe will be developed once rightscale-tools is available on RubyGems.org or a remote file location
-# https://github.com/rightscale/rightscale_tools
-log "rightscale-tools is not available on rubygems.org, skipping"
+rightscale_marker :begin
+
+SANDBOX_BIN_GEM = "/opt/rightscale/sandbox/bin/gem"
+
+# right_rackspace gem
+RACKSPACE_GEM = "right_rackspace"
+RACKSPACE_VERSION = "0.0.0.20111110"
+
+# right_cloud_api gem
+RIGHT_CLOUD_API_GEM = "right_cloud_api"
+RIGHT_CLOUD_API_VERSION = "0.0.1"
+
+# rightscale_tools gem
+RS_TOOLS_GEM = "rightscale_tools"
+RS_TOOLS_VERSION = "1.6.2"
+
+COOKBOOK_DEFAULT_GEMS = ::File.join(::File.dirname(__FILE__), "..", "files", "default")
+
+# Install tools dependencies
+
+# right_rackspace
+r = gem_package "#{COOKBOOK_DEFAULT_GEMS}/#{RACKSPACE_GEM}-#{RACKSPACE_VERSION}.gem" do
+  gem_binary SANDBOX_BIN_GEM
+  version RACKSPACE_VERSION
+  action :nothing
+end
+r.run_action(:install)
+
+# right_cloud_api
+r = gem_package "#{COOKBOOK_DEFAULT_GEMS}/#{RIGHT_CLOUD_API_GEM}-#{RIGHT_CLOUD_API_VERSION}" do
+  gem_binary SANDBOX_BIN_GEM
+  version RIGHT_CLOUD_API_VERSION
+  action :nothing
+end
+r.run_action(:install)
+
+# Install tools
+r = gem_package "#{COOKBOOK_DEFAULT_GEMS}/#{RS_TOOLS_GEM}-#{RS_TOOLS_VERSION}.gem" do
+  gem_binary SANDBOX_BIN_GEM
+  version RS_TOOLS_VERSION
+  action :nothing
+end
+r.run_action(:install)
+
+Gem.clear_paths
+
+rightscale_marker :end
