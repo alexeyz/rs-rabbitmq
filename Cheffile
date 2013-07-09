@@ -8,6 +8,10 @@ cookbook 'sys',
    :path => 'cookbooks/sys',
    :ref => '0158a9ea18c51d0e0d9754879ac98ab783c13ace'
 
+cookbook '',
+   :git => 'https://github.com/opscode-cookbooks/build-essential',
+   :ref => 'master'
+
 cookbook 'apt',
    :git => 'https://github.com/opscode-cookbooks/apt.git',
    :ref => 'master'
@@ -31,7 +35,7 @@ cookbook 'block_device',
    :ref => '0158a9ea18c51d0e0d9754879ac98ab783c13ace'
 
 cookbook 'rabbitmq',
-   :git => 'https://github.com/opscode-cookbooks/rabbitmq.git',
+   :git => 'https://github.com/alexeyz/opscode_rabbitmq',
    :ref => 'master'
 
 cookbook 'rs-rabbitmq',
